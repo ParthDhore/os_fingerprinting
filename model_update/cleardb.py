@@ -16,7 +16,7 @@ try:
     total_count = cursor.fetchone()[0]
 
     # Define the limit
-    limit = 3
+    limit = 1000000
 
     # Check if the total count exceeds the limit
     if total_count > limit:
