@@ -11,7 +11,7 @@ def get_os(agent):
     return {'os_name': os_name, 'flavor': flavor}
     
   for os in os_names:
-      match = re.search(rf'{os}[^;._xrl())/]*', agent)
+      match = re.search(rf'{os}[^;xrl())/]*', agent)
       if match:
           os = match.group(0)
           os_name=os.split(" ")[0]

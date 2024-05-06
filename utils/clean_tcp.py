@@ -45,7 +45,7 @@ def get_options_arr(olayout: str):
       i += 10  # Skip TS (2 bytes Kind + 8 bytes Length)
 
     else:
-      TCPOptions.append(f"?{kind}")
+      TCPOptions.append("?")
       length = int(hex_list[i + 1], 16)
       i += length + 1
 

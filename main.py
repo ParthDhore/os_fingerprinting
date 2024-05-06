@@ -12,7 +12,7 @@ from utils.useragent import get_os
 import warnings
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
 
-cap = pyshark.FileCapture('..\Data\pcap_2023-07-12.pcap')
+cap = pyshark.FileCapture('..\Data\ext00.pcap')
 packets = (pkt for pkt in cap if 'TCP' in pkt)
 cache={'ip': None, 'tcp_info': None}
 tescnt=0
@@ -67,11 +67,11 @@ for pkt in packets:
         cache['ip']=temp['ip_src']
         cache['tcp_info']=tcp_info
         inp=tcp_info.reshape(1,-1)
-        a=time.time() 
+        # a=time.time() 
         os=tcp_os(inp)
-        b=time.time()
+        # b=time.time()
         print(f"ip: {temp['ip_src']}, os: {os[0]}")
-        print(b-a)
+        # print(b-a)
     
     else:
         os_label=get_os(str(temp['h_useragent']))
@@ -79,6 +79,6 @@ for pkt in packets:
             continue
         insert_packet_data(cache['tcp_info'],os_label)
         tescnt+=1
-        if tescnt==100:
+        if tescnt==300:
             break
         
