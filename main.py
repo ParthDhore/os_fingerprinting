@@ -74,16 +74,10 @@ for pkt in packets:
         print(b-a)
     
     else:
-        c=time.time()
         os_label=get_os(str(temp['h_useragent']))
-        d=time.time()
-        print(f'first: {d-c}')
         if (cache['ip'] is None) | (cache['ip']!=temp['ip_src']) | (temp['h_useragent'] is None) | (temp['h_useragent']=='') | (os_label is None):
             continue
-        e=time.time()
         insert_packet_data(cache['tcp_info'],os_label)
-        f=time.time()
-        print(f'This shit: {f-e}')
         tescnt+=1
         if tescnt==100:
             break
