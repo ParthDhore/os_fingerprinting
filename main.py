@@ -12,7 +12,7 @@ from utils.useragent import get_os
 import warnings
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
 
-cap = pyshark.FileCapture('..\Data\ext01.pcap')
+cap = pyshark.FileCapture('..\Data\pcap_2023-07-12.pcap')
 packets = (pkt for pkt in cap if 'TCP' in pkt)
 cache={'ip': None, 'tcp_info': None}
 tescnt=0
